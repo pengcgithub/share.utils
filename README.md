@@ -2,16 +2,33 @@
 
 ## 简介 ##
 
-记录Java项目开发中所涉及到的各种工具方法，有效的整理避免以后的重复查找。
+个人记录工作或学习中优秀的封装方法，避免重复性的查找。
 
 
-## 项目说明 ##
+## 详细介绍 ##
 
-### javautils项目 ###
+1、exception ：异常处理
+
+- BaseException
+
+- BusinessException
+
+- PersistenceException
+
+2、export 导出/导入，例如word、excel等
+``
+3、json json格式处理
+
+4、redis
+
+5、threads 线程
 
 
+## 关于作者 ##
 
+- [pengcheng3211@gmail.com](https://github.com/pengcgithub)
 
-## 参与人员 ##
+- http://pengcgithub.github.io/
+
 
 

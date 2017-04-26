@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/javautils/javautils.iml" filepath="$PROJECT_DIR$/javautils/javautils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/share.utils.iml" filepath="$PROJECT_DIR$/share.utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaCommon.iml" filepath="$PROJECT_DIR$/JavaCommon.iml" />
     </modules>
   </component>
 </project>

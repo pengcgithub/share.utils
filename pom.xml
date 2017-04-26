@@ -6,22 +6,23 @@
 
     <groupId>share.utils</groupId>
     <artifactId>share.utils</artifactId>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>share.utils</name>
     <url>http://maven.apache.org</url>
+
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.5.RELEASE</spring.version>
+        <junit>4.8.1</junit>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <httpcomponents.version>4.2.3</httpcomponents.version>
     </properties>
 
-    <!--<dependecyManagement>-->
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>${junit}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -183,12 +184,50 @@
             <artifactId>commons-validator</artifactId>
             <version>1.3.1</version>
         </dependency>
-        <!-- end apache-commons -->
-    </dependencies>
-    <!--</dependecyManagement>-->
 
-    <!-- 修改maven创建项目默认以来的jdk版本 -->
-    <!-- 参考资料：http://www.trinea.cn/android/maven/ -->
+        <!-- apache.poi -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.11</version>
+        </dependency>
+        <!-- jedis -->
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <!-- gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>19.0</version>
+        </dependency>
+
+    </dependencies>
+
     <build>
         <finalName>share.utils</finalName>
         <pluginManagement>
@@ -215,25 +254,12 @@
         </pluginManagement>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>releases</id>
-            <name>Nexus Release Repository</name>
-            <url>http://192.168.3.200:8081/nexus/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>snapshots</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://192.168.3.200:8081/nexus/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <!--依赖和扩展的远程仓库列表。-->
     <repositories>
         <repository>
             <id>public</id>
             <name>Nexus Public Repository</name>
-            <url>http://192.168.3.200:8081/nexus/content/repositories/public/</url>
+            <url>http://localhost:8081/nexus/content/repositories/public/</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
@@ -245,8 +271,4 @@
         </repository>
     </repositories>
 
-    <!-- 依赖的模块 -->
-    <modules>
-        <module>javautils</module>
-    </modules>
 </project>
