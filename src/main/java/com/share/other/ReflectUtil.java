@@ -2,25 +2,17 @@ package com.share.other;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
-
 import org.apache.log4j.Logger;
 
 /**
- * 
- * 反射工具类
- * 
- * @author wuanguo
- * 
+ * 反射工具类<br>
+ * @see com.share.other
+ * @author pengc
+ * @date 2017/6/26
  */
-public final class ReflectUtil
-{
+public final class ReflectUtil {
     
-    /**
-     * 
-     */
-    private ReflectUtil()
-    {
-    }
+    private ReflectUtil() {}
     
     /**
      * 获取对象接口的范型类型
