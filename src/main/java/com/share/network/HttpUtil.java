@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author pengc
  * @see com.share.network
- * @date 2017/6/26
+ * @since 2017/6/26
  */
 public class HttpUtil {
 
@@ -21,7 +21,7 @@ public class HttpUtil {
      *
      * @param request
      * @return 返回true 为IE浏览器，否则为其他浏览器
-     * @date 2017/6/26
+     * @since 2017/6/26
      */
     public static boolean isMSBrowser(HttpServletRequest request) {
         String userAgent = request.getHeader("User-Agent");

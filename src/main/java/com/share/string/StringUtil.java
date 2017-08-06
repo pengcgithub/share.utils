@@ -15,33 +15,11 @@ import java.util.regex.Pattern;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 
-
-
 /**
  * 字符串工具类
- * @Time 5:01:04 PM
- * @author 
- */
-/**
- * 〈一句话功能简述〉
- * 〈功能详细描述〉
- * @author qiang.chen
- * @see         [相关类/方法]（可选）
- * @since      [产品/模块版本] （必须）
- */
-/**
- * 〈一句话功能简述〉
- * 〈功能详细描述〉
- * @author qiang.chen
- * @see         [相关类/方法]（可选）
- * @since      [产品/模块版本] （必须）
- */
-/**
- * 〈一句话功能简述〉 〈功能详细描述〉
- * 
- * @author qiang.chen
- * @see [相关类/方法]（可选）
- * @since [产品/模块版本] （必须）
+ * @author pengc
+ * @see com.share
+ * @since 2017/08/06
  */
 public class StringUtil extends org.apache.commons.lang.StringUtils  {
 
@@ -61,56 +39,49 @@ public class StringUtil extends org.apache.commons.lang.StringUtils  {
 	public static final String STRING_BLANK = " ";
 
 	/**
-	 * 字符串是否为空
+	 * 字符串是否为空<br/>
 	 * 
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 如果为空发挥true，否则返回false
 	 */
 	public static boolean isNull(Object str) {
-		// return (str == null || str.toString().trim().equals("")) ? true :
-		// false;
 		return (str == null || str.toString().trim().length() <= 0);
 	}
-	
-	
+
 	/**
 	 * 字符串是否为空
 	 * 
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 返回去空格的字符串
 	 */
 	public static String trim(String str) {
-		// return (str == null || str.toString().trim().equals("")) ? true :
-		// false;
-		return StringUtil.isNotNull(str)?str.trim():"";
+		return StringUtil.isNotNull(str) ? str.trim() : "";
 	}
+
 	/**
 	 * 字符串是否为空
 	 * 
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 不为空返回true，否则返回false
 	 */
 	public static boolean isNotNull(Object str) {
-		// return (str == null || str.toString().trim().equals("")) ? true :
-		// false;
-		return (str !=null && str.toString().trim().length() > 0);
+		return (str != null && str.toString().trim().length() > 0);
 	}
+
 	@SuppressWarnings("unchecked")
 	public static String filterStringForCell(String input) {
-		if (isNull(input))
-			return "";
+		if (isNull(input)) return "";
 		return input.replaceAll(SPLIT_RETURNANDCHANGEROW, " ").replaceAll(
 				HTML_QUOT, "“");
 	}
 
 	/**
 	 * Object to String
-	 * 
-	 * @param obj
-	 * @return
+	 *
+	 * @param obj 转化变量
+	 * @return 返回string字符串，如果为空则返回null
 	 */
 	public static String getStr(Object obj) {
-
 		return obj != null ? String.valueOf(obj) : "";
 	}
 
@@ -123,15 +94,14 @@ public class StringUtil extends org.apache.commons.lang.StringUtils  {
 	 */
 	@SuppressWarnings("unchecked")
 	public static String filter(String input, Map m) {
-		if (isNull(input))
-			return "";
+		if (isNull(input)) return "";
 		if (m == null)
 			return input.replaceAll(SPLIT_COMMA_STRING, SPLIT_COMMA)
 					.replaceAll(SPLIT_VERTICAL_STRING, SPLIT_VERTICAL);
 		Set st = m.keySet();
-		Iterator<String> iter = st.iterator();
-		while (iter.hasNext()) {
-			String mk = iter.next();
+		Iterator<String> iterator = st.iterator();
+		while (iterator.hasNext()) {
+			String mk = iterator.next();
 			input = input.replaceAll(mk, (String) m.get(mk));
 		}
 		return input;
@@ -338,35 +308,6 @@ public class StringUtil extends org.apache.commons.lang.StringUtils  {
 
 		c = b << 8 | a;
 		return c;
-	}
-
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		System.out.println(StringUtil.isUpper("A"));
-		// String t1 = "abc123'dsda'dasda\"\"dsa'\r\ndasdad";
-		// //String t2 = "吴江综合办公室展板等制作费（清偿）";
-		// //SysLog.log
-		// int a=8;
-		// //System.out.println(f(a)+"---->");
-		// System.out.println(get());
-		// //System.out.println(filterStringForCell(t1));
-		//		
-		// /*System.out.println(substring(t1, 5, ""));
-		// System.out.println(substring(t2, 17, ""));
-		// System.out.println(substring(t2, 20, ""));*/
-		//		
-		// String s =
-		// "176839703545251841,0|176839703545251842,0|176839703545251843,0";
-		// List<Long> list = StringUtil.parseString(s);
-		// System.out.println("--------------------------");
-		// for(Long l : list)
-		// {
-		// System.out.println(l);
-		// }
-//		String s1 = "aaa";
-//		System.out.println(isDegree(s1));
 	}
 
 	/**
@@ -1207,17 +1148,30 @@ public class StringUtil extends org.apache.commons.lang.StringUtils  {
     }
 
     /**
-     * @param shortPinyin
-     * @return
+	 * 移除特殊字符
+     * @param shortPinyin 字符串变量
+     * @return 返回被移除的字符串变量
      */
     public static String replaceSpecialCharacters(String shortPinyin) {
-
         String regEx = "[-`~!@#$%^&*()+=|{}':;',\\[\\]\".<>《》/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(shortPinyin);
-        return m.replaceAll("fh").trim();
+        return m.replaceAll(" ").trim();
     }
 
+	/**
+	 * 替换特殊字符
+	 * @param shortPinyin 字符串变量
+	 * @param replaceStr 替换的字符串
+	 * @return 返回被替换的字符串
+	 */
+	public static String replaceSpecialCharacters(String shortPinyin, String replaceStr) {
+		String regEx = "[-`~!@#$%^&*()+=|{}':;',\\[\\]\".<>《》/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？\\s*]";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(shortPinyin);
+		return m.replaceAll(replaceStr).trim();
+	}
+    
     /**
      * @param str
      * @return
@@ -1285,11 +1239,10 @@ public class StringUtil extends org.apache.commons.lang.StringUtils  {
 	/**
 	 * 下划线转驼峰风格
 	 * 
-	 * @param underscoreName
-	 * @return
+	 * @param underscoreName 下划线名称
+	 * @return 驼峰风格的字符串
 	 */
 	public static String underscore2camel(String underscoreName){
-		
 		if(isEmpty(underscoreName)){
 			return EMPTY;
 		}
