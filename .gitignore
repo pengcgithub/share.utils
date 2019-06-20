@@ -1,0 +1,22 @@
+# IntelliJ project files
+.idea/
+*.iml
+*.ipr
+*.iws
+out
+gem
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# MacOS files
+.DS_Store
+.history
+
+# Windows files
+Thumbs.db
+
+# Maven files
+**/target/
