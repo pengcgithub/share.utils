@@ -18,7 +18,7 @@ import org.apache.commons.io.FileUtils;
 /**
  * 字符串工具类
  * @author pengc
- * @see com.share
+ * @see com.platform.common.string
  * @since 2017/08/06
  */
 public class StringUtil extends org.apache.commons.lang.StringUtils  {

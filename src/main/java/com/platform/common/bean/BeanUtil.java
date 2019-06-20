@@ -13,7 +13,7 @@ import java.util.List;
  * @author pengc
  * @date 2019/4/24 19:03
  */
-public class BeanUtils {
+public class BeanUtil {
 
     /**
      * 深拷贝属性对象<br/>
